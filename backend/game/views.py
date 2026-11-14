@@ -4,5 +4,5 @@ from rest_framework.response import Response
 @api_view(["GET"])
 def index(request):
     return Response({
-        "message": "Pokemon game API is running!"
+        "message": "Hello World!"
     })

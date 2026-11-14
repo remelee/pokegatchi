@@ -1,17 +1,16 @@
-import { useEffect } from 'react'
-import './App.css'
+import { useEffect, useState } from "react";
 
 function App() {
+  const [message, setMessage] = useState("");
+
   useEffect(() => {
-  fetch('/api/').then(r => r.text()).then(console.log)
-}, [])
+    fetch("http://localhost:8000/api/")
+      .then((response) => response.json())
+      .then((data) => setMessage(data.message))
+      .catch((error) => console.error(error));
+  }, []);
 
-
-  return (
-    <>
-      
-    </>
-  )
+  return <h1>{message || "Loading..."}</h1>;
 }
 
-export default App
+export default App;
